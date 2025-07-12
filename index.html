@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajesh Ladwa | Mechanical Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --text-light: #e2e8f0;
+      --text-soft: #94a3b8;
+      --accent: #38bdf8;
+      --highlight: #3b82f6;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-light);
+      font-family: var(--font-main);
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-light);
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--bg);
+      padding: 120px 20px 80px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      min-height: 85vh;
+    }
+
+    .hero-left {
+      flex: 1 1 55%;
+      min-width: 300px;
+    }
+
+    .hero-right {
+      flex: 1 1 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes fadeZoom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .hero-right img {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      box-shadow: 0 15px 50px rgba(56, 189, 248, 0.3);
+      animation: popIn 2.5s ease-out forwards;
+      transform: scale(0);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+      80% {
+        transform: scale(0.95);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .hero-right img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(56, 189, 248, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .hero-left h1 {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-light) 0%, var(--accent) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-left .tagline {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      position: relative;
+      padding-left: 0;
+    }
+
+    .hero-left .tagline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 2px;
+      background: var(--accent);
+      display: none;
+    }
+
+    .hero-left .intro {
+      color: var(--text-soft);
+      margin-bottom: 36px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-weight: 400;
+      max-width: 520px;
+      letter-spacing: -0.005em;
+      text-align: justify;
+    }
+
+    .button {
+      font-family: var(--font-display);
+      background: var(--accent);
+      color: #0f172a;
+      padding: 14px 28px;
+      border-radius: 10px;
+      margin-right: 16px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 12px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .button:hover {
+      background: var(--highlight);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Section Styles */
+    section {
+      margin: 80px 0;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      color: var(--accent);
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      color: var(--text-light);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* Skills and Badges */
+    .skills {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: var(--bg-card);
+      color: var(--accent);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .skills .badge {
+      cursor: default;
+    }
+
+    /* Job and Project Cards */
+    .job, .project {
+      background-color: var(--bg-card);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+    }
+
+    .job:hover, .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .job time, .project time {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .job ul, .project ul {
+      padding-left: 20px;
+      margin: 15px 0;
+    }
+
+    .job li, .project li {
+      margin-bottom: 8px;
+      color: var(--text-soft);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    /* Certifications */
+    .certifications ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .certifications .badge {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certifications .badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .certifications .badge:hover::before {
+      left: 100%;
+    }
+
+    .certifications .badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Projects with Images */
+    .projects .container {
+      max-width: 1200px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project {
+      background: linear-gradient(135deg, var(--bg-card) 0%, #1a2332 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(45deg, var(--accent), var(--highlight));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.1);
+      backdrop-filter: blur(1px);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content time {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .project-content h3 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .project-content p {
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--bg-card);
+      padding: 60px 0;
+      margin-top: 80px;
+    }
+
+    .contact h2 {
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-intro {
+      font-size: 1.2rem;
+      color: var(--text-soft);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+      background: var(--bg);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text-light);
+      min-width: 180px;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    }
+
+    .contact-item i {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .contact-item span {
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .contact-item small {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #020c1b;
+      color: var(--text-soft);
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 0;
+    }
+
+    /* Scroll Animation Styles */
+    .job, .project, .skills li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--bg);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+
+      .hero-left h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-left .tagline {
+        font-size: 1.4rem;
+      }
+
+      .hero-left .intro {
+        font-size: 1.1rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-right img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .button {
+        margin-right: 12px;
+        margin-bottom: 12px;
+        padding: 12px 24px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-image {
+        height: 300px;
+        font-size: 2rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-item {
+        min-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-left h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-left .tagline {
+        font-size: 1.2rem;
+      }
+
+      .hero-left .intro {
+        font-size: 1rem;
+      }
+
+      .job, .project {
+        padding: 20px;
+      }
+
+      .hero-right img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="#home" class="logo">Rajesh Ladwa</a>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-left">
+      <h1>Hi, I'm Rajesh Ladwa</h1>
+      <p class="tagline">Mechanical Engineer</p>
+      <p class="intro">
+        I’m Rajesh Ladwa, a passionate Mechanical Engineering student skilled in CAD design, automation, and modern manufacturing. I’ve worked on real-world projects like pneumatic cutters and digital angle devices using Arduino. With hands-on experience in CNC, 3D printing, and industrial tools, I love turning ideas into functional innovations.
+      </p>
+      <a href="#contact" class="button">Get In Touch</a>
+      <a href="assets/rajesh_resume.pdf" class="button" download>Download Resume</a>
+    </div>
+    <div class="hero-right">
+      <img src="assets/rajesh.jpeg" alt="Rajesh Ladwa" />
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I'm a Mechanical Engineering student with a strong interest in design, innovation, and automation.
+        My journey includes hands-on experience in CNC machining, 3D printing, and digital systems using Arduino.
+      </p>
+      <h3>Skills</h3>
+      <ul class="skills">
+        <li class="badge">CATIA V5</li>
+        <li class="badge">SolidWorks</li>
+        <li class="badge">CNC Programming</li>
+        <li class="badge">3D Printing</li>
+        <li class="badge">ANSYS</li>
+        <li class="badge">IoT & Automation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="job">
+        <time>Feb 2023 – May 2023 · Jodalli, Karnataka</time>
+        <h3>DANA ANAND PVT LTD — Intern</h3>
+        <ul>
+          <li>Operated CNC machines in a high-volume production line.</li>
+          <li>Worked with Fanuc robots and Lean Manufacturing methods.</li>
+          <li>Produced 10,000+ Nissan Coupling Flange parts.</li>
+        </ul>
+        <div class="badges">
+          <span class="badge">CNC</span>
+          <span class="badge">Quality</span>
+          <span class="badge">Mass Production</span>
+          <span class="badge">Industrial Robots</span>
+        </div>
+      </div>
+
+      <div class="job">
+        <time>Jan 2023 · Hubli, Karnataka</time>
+        <h3>GTTC Hubli — CNC & Prototyping Training</h3>
+        <ul>
+          <li>Trained in G-code, M-code programming, and Fanuc machine simulation.</li>
+          <li>Learned 3D printing (FDM, SLA, SLS) and Advanced Manufacturing.</li>
+        </ul>
+        <div class="badges">
+          <span class="badge">G-code & M-code</span>
+          <span class="badge">3D Printing</span>
+          <span class="badge">Advanced Manufacturing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-image">
+             <img src="assets/sheet.jpg">.
+          </div>
+          <div class="project-content">
+            <time>Current</time>
+            <h3>Pneumatic Sheet Metal Cutter</h3>
+            <p>Designed and fabricated a pneumatic system to cut 0.5 mm aluminum sheets efficiently using compressed air. Features precision control and automated cutting sequences.</p>
+            <div class="badges">
+              <span class="badge">Pneumatics</span>
+              <span class="badge">Sheet Metal</span>
+              <span class="badge">SolidWorks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-image">
+            <img src="assets/dam.jpeg">
+          </div>
+          <div class="project-content">
+            <time>Sep 2024 – Feb 2025</time>
+            <h3>Digital Angle Measurement Device</h3>
+            <p>Built using Arduino Nano and MPU6050 to measure pitch angle in real-time for construction and carpentry applications. Provides accurate digital readings with LCD display.</p>
+            <div class="badges">
+              <span class="badge">Arduino</span>
+              <span class="badge">MPU6050</span>
+              <span class="badge">Embedded Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications" id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <ul>
+        <li class="badge certificate-link" data-cert="catia">CATIA V5 - CAD Design</li>
+        <li class="badge certificate-link" data-cert="iot">IoT & Cloud Computing</li>
+        <li class="badge certificate-link" data-cert="3dprinting">3D Printing Technologies</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">
+          I'm always open to discussing new opportunities, collaborations, or just having a conversation about engineering and technology. Feel free to reach out!
+        </p>
+        <div class="contact-links">
+          <a href="mailto:rajeshladwa.works@gmail.com" class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+            <small>rajeshladwa.works@gmail.com</small>
+          </a>
+          <a href="https://linkedin.com/in/rajeshladwa" class="contact-item" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+            <small>Connect with me</small>
+          </a>
+          <a href="tel:+918088987117" class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>Phone</span>
+            <small>+91 8088987117</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Rajesh Ladwa | Designed by Rajesh with help of AI</p>
+    </div>
+  </footer>
+
+  <script>
+    // Certificate links - Replace these URLs with your actual Google Drive certificate links
+    const certificateLinks = {
+      catia: 'https://drive.google.com/file/d/1AFhH1MQnC5Lggh_oN3sMMNYPjmHT2Sig/view?usp=drive_link',
+      iot: 'https://drive.google.com/file/d/12i4coE6CCnR4xoqjovQF7PMuov8UnVID/view?usp=drive_link',
+      '3dprinting': 'https://drive.google.com/file/d/1bTgwhsDhI3kYz-lsQejrG5QsrkjWaXek/view?usp=drive_link'
+    };
+
+    // Handle certificate clicks
+    document.querySelectorAll('.certificate-link').forEach(cert => {
+      cert.addEventListener('click', function() {
+        const certType = this.getAttribute('data-cert');
+        const certUrl = certificateLinks[certType];
+        
+        if (certUrl && certUrl !== 'https://drive.google.com/file/d/YOUR_CATIA_CERTIFICATE_ID/view') {
+          window.open(certUrl, '_blank');
+        } else {
+          alert('Please update the certificate link in the code with your actual Google Drive URL');
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Reveal animation on scroll
+    const revealElements = document.querySelectorAll('.job, .project, .skills li');
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      revealElements.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    };
+
+    // Initialize scroll reveal
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    
+    // Run once on page load
+    document.addEventListener("DOMContentLoaded", revealOnScroll);
+  </script>
+</body>
+</html>
